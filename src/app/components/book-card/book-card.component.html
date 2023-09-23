@@ -1,0 +1,12 @@
+<div class="card" *ngIf="book">
+    <div class="card__cover-image">
+        <img src="assets/media/no-cover-image.png" [alt]="book.title" width="200" height="300">
+    </div>
+
+    <div class="card__title">
+        <span>{{book.title}}</span>
+    </div>
+    <div class="card__author">
+        <span>{{book.author}}</span>   
+    </div>
+</div>

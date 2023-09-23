@@ -1,0 +1,8 @@
+
+<div class="container">
+    <ng-container *ngIf="(books$ | async) as books">
+        <div class="book-overview" *ngFor="let book of books">
+            <app-book-card [book]="book"></app-book-card>
+        </div>
+    </ng-container>
+</div>
