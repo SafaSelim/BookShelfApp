@@ -1,5 +1,15 @@
 <header>
-    <nav>
-     <a routerLink="/books"><img class="logo" width="40" height="40" src="assets/icons/bookshelf.svg"></a>
-    </nav>
-  </header>
+  <div class="header-logo">
+    <a [routerLink]="['/books']">
+      <img class="logo" width="40" height="40" src="assets/icons/bookshelf.svg">
+    </a>
+  </div>
+  <div class="header-add-book">
+    <a  [routerLink]="['/new-book']" class="header-add-book__link">
+      <img class="add-new-book" width="40" height="40" src="assets/icons/book-add.svg">
+      <strong>Add New Book</strong>
+    </a>
+  </div>
+</header>
+
+<h1 class="page-title">{{pageTitle}}</h1>

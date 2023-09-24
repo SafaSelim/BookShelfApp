@@ -17,11 +17,35 @@ export class BookService {
         private http: HttpClient,
     ) { }
 
-   
-    getBooks() {
+    /**
+     * Fetch all books from firebase storage
+     * 
+     * @returns (Observable<Book[]>)
+     */
+    getBooks(): Observable<Book[]> {
         return this.books_.asObservable();
     }
-    // addBooks(books: Book[]): Observable<any> {
-    //     return this.http.put(baseUrl + '/books.json', books);
-    // }
+
+    /**
+     * Returns book categories
+     */
+    getBookCategories() {
+        // TODO
+    }
+
+
+    /** 
+     * Adding book to the firebase storage
+     * 
+     * @param (books: Book[])
+    */
+    addBook(books: Book[]): Observable<any> {
+        return this.http.put(baseUrl + '/books.json', books);
+    }
+
+    updateBook(books: Book[]) {
+        // TODO
+    }
+
+
 }

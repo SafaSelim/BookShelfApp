@@ -5,19 +5,52 @@ header{
     width: 100%;
     height: 60px;
     background: #fff;
-    padding: 10px 40px;
+    color: #090937;
+    padding: 10px 80px;
     display: flex;
-    justify-content:space-between;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+
+    .header-logo,
+    .header-add-book {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .header-logo {
+        .logo {
+            color:#333;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;  
+        }
+    }
+
+    .header-add-book {
+        position: fixed;
+        right: 140px;
+
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: cursive;
+            color:#333;
+            text-decoration: none;
+
+        }
+    }
 }
 
-.logo{
-    color:#333;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
+.page-title {
+    position: relative;
+    top: 85px;
+    left: 80px;
+    display: flex;
+    justify-content: center;
 }

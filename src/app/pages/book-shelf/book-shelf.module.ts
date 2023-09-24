@@ -9,7 +9,7 @@ import { BookDetailsModule } from '../book-details/book-details.module';
   declarations: [BookShelfComponent],
   imports: [
     CommonModule,
-    BookShelfRoutingModule,
+    // BookShelfRoutingModule,
     ComponentsModule,
   ],
   exports: [BookShelfComponent]
