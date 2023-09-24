@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BookShelfComponent } from './book-shelf.component';
 import { BookShelfRoutingModule } from './book-shelf-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
-
-
+import { BookDetailsModule } from '../book-details/book-details.module';
 
 @NgModule({
   declarations: [BookShelfComponent],

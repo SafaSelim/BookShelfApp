@@ -7,17 +7,18 @@ import { BookService } from './services/book.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { BookShelfModule } from './pages/book-shelf/book-shelf.module';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
-    BookShelfModule,
   ],
   providers: [ BookService ],
   bootstrap: [AppComponent]

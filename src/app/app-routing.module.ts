@@ -3,13 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookShelfComponent } from './pages/book-shelf/book-shelf.component';
 
 const routes: Routes = [
-  { path: 'books', loadChildren: () => import('./pages/book-shelf/book-shelf.module').then(m => m.BookShelfModule) },
-  // { path: 'books', component: BookShelfComponent},
-  // { path: 'books', loadChildren: () => import('./pages/book-shelf/book-shelf.module').then(m => m.BookShelfModule) },
+  { path: 'books', component: BookShelfComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
