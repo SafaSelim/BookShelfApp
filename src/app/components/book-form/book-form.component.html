@@ -12,9 +12,9 @@
           <label for="category">Category</label>
           <select id="category" formControlName="category">
             <option value="" disabled selected>Please Select a Category</option>
-            <!-- TODO use category data to fill here -->
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
+            <ng-container *ngIf="(bookCategories$ | async) as bookCategories">
+                <option *ngFor="let bookCategory of bookCategories" [ngValue]="bookCategory">{{bookCategory.name}}</option>
+            </ng-container>
           </select>
         </div>
         <div class="form-container__textarea-input">

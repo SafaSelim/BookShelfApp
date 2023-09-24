@@ -8,6 +8,8 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./book-form.component.scss']
 })
 export class BookFormComponent implements OnInit {
+  bookCategories$ = this.bookService.getBookCategories();
+
   bookForm!: FormGroup;
 
   selectedFileName = '';
@@ -18,6 +20,7 @@ export class BookFormComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+      this.bookService.fetchCategories();
       this.initForm();
     }
 
@@ -41,7 +44,8 @@ export class BookFormComponent implements OnInit {
     }
 
     onSubmit(event: any) {
-    //  TODO add new book on the firebase by using bookService
+      this.bookService.addBook(this.bookForm.value);
+      console.log("this.bookForm-->", this.bookForm.value);
     }
 
 }

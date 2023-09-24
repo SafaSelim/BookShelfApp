@@ -1,1 +1,1 @@
-export const  baseUrl = "https://book-shelf-vava-default-rtdb.europe-west1.firebasedatabase.app/";
+export const  firebaseUrl = "https://book-shelf-vava-default-rtdb.europe-west1.firebasedatabase.app/";

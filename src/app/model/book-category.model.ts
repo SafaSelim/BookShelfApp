@@ -1,4 +1,4 @@
-export type BookCategory = "Adventure stories" |
+export type BookCategoryName = "Adventure stories" |
 "Classics" |
 "Crime" |
 "Fairy tales, fables, and folk tales" |
@@ -23,3 +23,13 @@ export type BookCategory = "Adventure stories" |
 "Essays" |
 "Non-fiction novel" |
 "Self-help"
+
+export class BookCategory {
+    id: number;
+    name: BookCategoryName;
+
+    constructor(id: number, name: BookCategoryName) {
+        this.id = id;
+        this.name = name;
+    }
+}
