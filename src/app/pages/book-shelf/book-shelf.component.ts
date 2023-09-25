@@ -31,7 +31,7 @@ export class BookShelfComponent implements OnInit {
       } else { 
         this.filteredBooks_.next(this.books);
       }
-      this.cdRef.detectChanges();
+      // this.cdRef.detectChanges();
     })
   }
 }

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookDetailsComponent } from '../book-details/book-details.component';
 
 const routes: Routes = [
-  { path: 'book-details/:bookId', component: BookDetailsComponent },
+  { path: 'books/book-details/:bookId', loadChildren: () => import('../book-details//book-details.module').then(m => m.BookDetailsModule) },
 ];
 
 @NgModule({

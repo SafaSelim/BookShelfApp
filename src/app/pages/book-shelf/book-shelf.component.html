@@ -3,7 +3,9 @@
     <app-filter-books></app-filter-books>
     <ng-container *ngIf="(filteredBooks_ | async) as books">
         <div class="book-overview" *ngFor="let book of books">
-            <app-book-card [book]="book"></app-book-card>
+            <a [routerLink]="'book-details/'+book.id">
+                <app-book-card [book]="book"></app-book-card>
+            </a>
         </div>
     </ng-container>
 </div>
