@@ -1,5 +1,5 @@
 header{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -10,6 +10,7 @@ header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 150;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
 
     .header-logo,
