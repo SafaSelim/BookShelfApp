@@ -10,12 +10,12 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [BookCardComponent, FilterBooksComponent, HeaderComponent, BookFormComponent],
+  declarations: [BookCardComponent, FilterBooksComponent, HeaderComponent, BookFormComponent, FilterBooksComponent],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
   ],
-  exports: [BookCardComponent, FilterBooksComponent, HeaderComponent, BookFormComponent]
+  exports: [BookCardComponent, FilterBooksComponent, HeaderComponent, BookFormComponent, FilterBooksComponent]
 })
 export class ComponentsModule { }

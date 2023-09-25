@@ -1,1 +1,14 @@
-<p>filter-section works!</p>
+<div class="filter-section" *ngIf="(bookCategories$ | async) as bookCategories">
+    <fieldset>
+        <legend>
+            <img src="assets/icons/filter-list.svg" width="32" height="32" alt="Filter Books"> 
+            <span>Categories</span>
+        </legend>
+        <div class="chip-group" role="radiogroup">
+            <div class="chip chip-checkbox" [class.selected]="bookCategory.id === selectedCategory.id" [tabindex]="i" role="radio" aria-checked="false" 
+                *ngFor="let bookCategory of bookCategories; index as i" (click)='filterBooks(bookCategory)'>
+            <span id="category-{$i}">{{bookCategory.name}}</span>
+            </div>
+        </div>
+        </fieldset>
+</div>

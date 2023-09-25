@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, first, map } from 'rxjs';
 import { Book } from '../model/book.model';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { firebaseUrl } from './config';
 import { bookCategories, books } from './books-mock-data';
 import { BookCategory } from '../model/book-category.model';
@@ -12,38 +13,17 @@ import { BookCategory } from '../model/book-category.model';
 })
 export class BookService {
 
-    books_: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
+    books$: Observable<Book[]> = new Observable<Book[]>();
+    filteredBooks$: Observable<Book[]> = new Observable<Book[]>();
+
+    filterBooks_: BehaviorSubject<BookCategory | 'clear'> = new BehaviorSubject<BookCategory | 'clear'>('clear');
     categories_: BehaviorSubject<BookCategory[]> = new BehaviorSubject<BookCategory[]>([]);
+
 
     constructor(
         private http: HttpClient,
+        private db: AngularFireDatabase, 
     ) { }
-
-    // For initiliaze the db
-    // storeBooks() {
-    //     this.http.put(firebaseUrl + '/books.json', books).subscribe(res=> {
-    //         console.log("books stored --> response-->",res);
-    //     });
-    // }
-
-    // storeCategories() {
-    //     this.http.put(firebaseUrl + 'bookCategories.json',bookCategories).subscribe(res=> {
-    //         console.log("categories saved response--> ", res);
-    //     })
-    // }
-
-    /**
-     * Fetch all books from firebase
-     */
-    fetchBooks(): void {
-
-        this.http.get(firebaseUrl+"books.json").pipe(
-            first(),
-            )
-        .subscribe((data: unknown)=> {
-            this.books_.next(data as Book[]);
-        })
-    }
 
     /**
      * Fetch all books from firebase
@@ -62,8 +42,9 @@ export class BookService {
      * 
      * @returns (Observable<Book[]>)
      */
-    getBooks(): Observable<Book[]> {
-        return this.books_.asObservable();
+    getBooks() {
+        this.books$ = this.db.list('books').valueChanges() as Observable<Book[]>;
+        return this.books$;
     }
 
     /**
@@ -80,12 +61,12 @@ export class BookService {
      * @param (books: Book[])
     */
     addBook(newBook: Book) {
-        this.http.get(firebaseUrl+'books.json').pipe(first())
-            .subscribe((books: any) => {
-                console.log("books", books)
-                books.push(newBook);
-                this.http.put(firebaseUrl + '/books.json',books).subscribe(res=> console.log("resp->",res));
-            });
+        this.db.list('books').push(newBook);
+    }
+
+
+    filterBooks(selectedCategory: BookCategory | 'clear') {
+        this.filterBooks_.next(selectedCategory);
     }
 
 

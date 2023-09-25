@@ -7,15 +7,16 @@ import { Book } from 'src/app/model/book.model';
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent implements OnInit {
-  @Input() book!: Book;
+  @Input() book!: any;
 
-  imageUrl: string = '';
+  imageUrl: string = "assets/media/no-cover-image.png";
 
   constructor() { }
 
   ngOnInit(): void {
-    this.imageUrl = (this.book.coverImageUrl !== undefined && this.book.coverImageUrl !== "") ? this.book.coverImageUrl : "assets/media/no-cover-image.png";
-    console.log("this.book--->",this.book);
+    if(this.book.coverImageUrl && this.book.coverImageUrl !== '') {
+      this.imageUrl = this.book.coverImageUrl;
+    }
   }
 
 }

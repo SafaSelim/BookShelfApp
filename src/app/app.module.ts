@@ -7,6 +7,8 @@ import { BookService } from './services/book.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { BookShelfModule } from './pages/book-shelf/book-shelf.module';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { BookShelfModule } from './pages/book-shelf/book-shelf.module';
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    
   ],
   providers: [ BookService ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
